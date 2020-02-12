@@ -1,0 +1,11 @@
+name: InviteCode
+author: icestar
+version: ${project.version}
+api-version: 1.13
+main: org.sct.invitecode.InviteCode
+description: "简易邀请码插件"
+commands:
+  InviteCode:
+    usage: "/InviteCode"
+    aliases: [InviteCode,ic]
+    description: "使用邀请码"
