@@ -100,7 +100,7 @@
             <groupId>local</groupId>
             <artifactId>PluginCore</artifactId>
             <version>1.0.0</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
