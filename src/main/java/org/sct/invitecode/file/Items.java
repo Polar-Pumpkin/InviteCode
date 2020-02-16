@@ -20,6 +20,7 @@ public class Items {
     }
 
     public static void SaveItem(String count,ItemStack itemStack) {
+        loadItems();
         items.set(count,itemStack);
         try {
             items.save(file);
@@ -29,6 +30,7 @@ public class Items {
     }
 
     public static ItemStack getItemStack(int num) {
+        loadItems();
         return items.getItemStack("items." + num);
     }
 }

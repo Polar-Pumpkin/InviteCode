@@ -3,6 +3,7 @@ author: icestar
 version: ${project.version}
 api-version: 1.13
 main: org.sct.invitecode.InviteCode
+depend: [PluginCore]
 description: "简易邀请码插件"
 commands:
   InviteCode:

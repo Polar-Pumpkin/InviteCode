@@ -21,6 +21,7 @@ public class Code {
     }
 
     public static void saveCode(String player,String ic) {
+        loadCode();
         code.set(player,ic);
         try {
             code.save(file);

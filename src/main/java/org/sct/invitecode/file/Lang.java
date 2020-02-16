@@ -21,10 +21,12 @@ public class Lang {
     }
 
     public static String getString(LangType langType) {
+        loadLang();
         return BasicUtil.convert(lang.getString(langType.getPath()));
     }
 
     public static List<String> getStringList(LangType langType) {
+        loadLang();
         return BasicUtil.convert(lang.getStringList(langType.getPath()));
     }
 }

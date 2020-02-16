@@ -21,6 +21,7 @@ public class Offline {
     }
 
     public static void SaveOfflinePlayer() {
+        loadOffline();
         offline.set("offline", InviteCodeData.getOfflinelist());
         try {
             offline.save(file);
@@ -30,6 +31,7 @@ public class Offline {
     }
 
     public static List<String> getOfflinePlayer() {
+        loadOffline();
         return offline.getStringList("offline");
     }
 }
