@@ -5,8 +5,7 @@ import org.sct.invitecode.InviteCode;
 import org.sct.invitecode.data.InviteCodeData;
 import org.sct.plugincore.util.function.SubCommand;
 import org.sct.plugincore.util.plugin.DownloadUtil;
-import org.sct.plugincore.util.plugin.GetVersionlMessage;
-
+import org.sct.plugincore.util.plugin.GetUpdateDetail;
 
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ public class Update implements SubCommand {
             } else if (args.length == 2 && args[1].equalsIgnoreCase("version")) {
                 InviteCodeData.getPool().submit(() -> {
                     try {
-                        GetVersionlMessage.get(sender, InviteCode.getInstance());
+                        GetUpdateDetail.get(sender, InviteCode.getInstance());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

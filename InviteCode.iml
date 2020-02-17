@@ -51,7 +51,7 @@
     <orderEntry type="module-library">
       <library name="Maven: authme:authme:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../1.12.2test/plugins/AuthMe-5.6.0-beta1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../1.8test/plugins/AuthMe-5.6.0-SNAPSHOT.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -66,6 +66,14 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Maven: local:PluginCore:1.0.0" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: system:PluginCore:1.0.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../1.14.4test/plugins/PluginCore.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

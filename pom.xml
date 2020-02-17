@@ -87,7 +87,7 @@
             <artifactId>authme</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>E:/work/1.12.2test/plugins/AuthMe-5.6.0-beta1.jar</systemPath>
+            <systemPath>E:/work/1.8test/plugins/AuthMe-5.6.0-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>vault</groupId>
@@ -97,10 +97,11 @@
             <systemPath>E:/work/1.12.2test/plugins/Vault.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>local</groupId>
+            <groupId>system</groupId>
             <artifactId>PluginCore</artifactId>
             <version>1.0.0</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>E:/work/1.14.4test/plugins/PluginCore.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

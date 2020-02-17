@@ -11,7 +11,7 @@ import org.sct.invitecode.file.*;
 import org.sct.invitecode.listener.Register;
 import org.sct.invitecode.util.JudgeDependencies;
 import org.sct.invitecode.util.JudgeStorge;
-import org.sct.plugincore.util.plugin.CheckUtil;
+import org.sct.plugincore.util.plugin.CheckUpdate;
 
 public class InviteCode extends JavaPlugin {
     public static InviteCode instance;
@@ -22,7 +22,7 @@ public class InviteCode extends JavaPlugin {
         instance = this;
 
         InviteCodeData.getPool().submit(() -> {
-            CheckUtil.checkupdate(Bukkit.getConsoleSender(), instance);});
+            CheckUpdate.check(Bukkit.getConsoleSender(), instance);});
         Bukkit.getPluginCommand("InviteCode").setExecutor(new CommandHandler());
 
         if (Bukkit.getPluginManager().isPluginEnabled("Authme")) {
