@@ -12,6 +12,7 @@ import org.sct.invitecode.listener.Register;
 import org.sct.invitecode.util.JudgeDependencies;
 import org.sct.invitecode.util.JudgeStorge;
 import org.sct.plugincore.util.plugin.CheckUpdate;
+import org.sct.plugincore.util.plugin.FileUpdate;
 
 public class InviteCode extends JavaPlugin {
     public static InviteCode instance;
@@ -22,6 +23,8 @@ public class InviteCode extends JavaPlugin {
         instance = this;
 
         InviteCodeData.getPool().submit(() -> {
+            FileUpdate.update(instance, "config.yml");
+            FileUpdate.update(instance, "lang.yml");
             CheckUpdate.check(Bukkit.getConsoleSender(), instance);});
         Bukkit.getPluginCommand("InviteCode").setExecutor(new CommandHandler());
 
