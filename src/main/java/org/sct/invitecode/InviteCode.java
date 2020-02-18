@@ -23,8 +23,8 @@ public class InviteCode extends JavaPlugin {
         instance = this;
 
         InviteCodeData.getPool().submit(() -> {
-            FileUpdate.update(instance, "config.yml");
-            FileUpdate.update(instance, "lang.yml");
+            FileUpdate.update(instance, "config.yml", getDataFolder().getPath());
+            FileUpdate.update(instance, "lang.yml", getDataFolder().getPath());
             CheckUpdate.check(Bukkit.getConsoleSender(), instance);});
         Bukkit.getPluginCommand("InviteCode").setExecutor(new CommandHandler());
 
