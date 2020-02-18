@@ -12,6 +12,7 @@
  - [x] Vault支持
  - [x] Playerpoints支持
  - [x] 支持Mysql和Yaml两种储存方式
+ - [x] 自动更新配置文件
 ***
 <p align="center">
 
