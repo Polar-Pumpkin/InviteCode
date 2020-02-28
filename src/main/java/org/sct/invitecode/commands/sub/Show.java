@@ -16,7 +16,7 @@ public class Show implements SubCommand {
 
         Player player = (Player) sender;
         player.closeInventory();
-        Inventory inv= InviteCodeData.getGui().setGUI();
+        Inventory inv = InviteCodeData.getGui().setGUI(player);
         player.openInventory(inv);
         return true;
     }

@@ -4,9 +4,9 @@ import org.sct.invitecode.InviteCode;
 
 import java.sql.*;
 
-public class Mysql extends Storge{
-    private Connection conn = null;
+public class Mysql extends Storge {
     String sql;
+    private Connection conn = null;
 
     public Mysql() {
         try {
@@ -23,12 +23,12 @@ public class Mysql extends Storge{
         String ip = InviteCode.getInstance().getConfig().getString("InviteCode.mySQLHost");
         String url = "jdbc:mysql://" + ip + ":" + port + "/" + database + "?useSSL=false&serverTimezone=UTC";
         try {
-            conn = DriverManager.getConnection(url ,user,password);
+            conn = DriverManager.getConnection(url, user, password);
             DatabaseMetaData meta = conn.getMetaData();
-            ResultSet rs = meta.getTables(null,null,tablename,new String[] {"Table"});
+            ResultSet rs = meta.getTables(null, null, tablename, new String[]{"Table"});
             boolean TableExist = rs.next();
             if (!TableExist) {
-                sql ="create TABLE ic ("
+                sql = "create TABLE ic ("
                         + "player varchar (255),"
                         + "ic varchar (255)"
                         + ")";
@@ -45,12 +45,12 @@ public class Mysql extends Storge{
     }
 
     @Override
-    public void storge(String player,String ic) {
+    public void storge(String player, String ic) {
         sql = "insert into ic (player,ic) values (?,?)";
         try {
             PreparedStatement pps = conn.prepareStatement(sql);
-            pps.setString(1,player);
-            pps.setString(2,ic);
+            pps.setString(1, player);
+            pps.setString(2, ic);
             pps.executeUpdate();
             pps.close();
         } catch (SQLException e) {
@@ -85,7 +85,7 @@ public class Mysql extends Storge{
             while (rs.next()) {
                 playername = rs.getString(1);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return playername;

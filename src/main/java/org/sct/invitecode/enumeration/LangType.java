@@ -8,9 +8,10 @@ public enum LangType {
     OP_COMMANG_HELP("Language.OPCommandHelp");
 
 
-    @Getter String path;
+    @Getter
+    String path;
 
-    private LangType(String path) {
+    LangType(String path) {
         this.path = path;
     }
 }

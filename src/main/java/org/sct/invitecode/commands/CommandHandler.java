@@ -19,16 +19,16 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
     private Map<String, SubCommand> subCommandMap = Maps.newHashMap();
 
     public CommandHandler() {
-        subCommandMap.put("reload",new Reload());
-        subCommandMap.put("help",new Help());
-        subCommandMap.put("check",new Check());
-        subCommandMap.put("create",new Create());
-        subCommandMap.put("reset",new Reset());
-        subCommandMap.put("reward",new Reward());
-        subCommandMap.put("saveitem",new SaveItem());
-        subCommandMap.put("show",new Show());
-        subCommandMap.put("storge",new Storge());
-        subCommandMap.put("update",new Update());
+        subCommandMap.put("reload", new Reload());
+        subCommandMap.put("help", new Help());
+        subCommandMap.put("check", new Check());
+        subCommandMap.put("create", new Create());
+        subCommandMap.put("reset", new Reset());
+        subCommandMap.put("reward", new Reward());
+        subCommandMap.put("saveitem", new SaveItem());
+        subCommandMap.put("show", new Show());
+        subCommandMap.put("storge", new Storge());
+        subCommandMap.put("update", new Update());
     }
 
     public void registerSubCommand(String commandName, SubCommand command) {
@@ -40,8 +40,8 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(cmds.equalsIgnoreCase(cmd.getName())) {
-            if(args.length == 0) {
+        if (cmds.equalsIgnoreCase(cmd.getName())) {
+            if (args.length == 0) {
                 //如果命令没有参数
                 subCommandMap.get("help").execute(sender, args);
                 return true;
@@ -61,7 +61,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-       List<String> completions = new ArrayList<>();
+        List<String> completions = new ArrayList<>();
         if (cmd.getName().equalsIgnoreCase("InviteCode")) {
             if (args.length == 1) {
                 completions.add("reload");
@@ -74,12 +74,12 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
                 completions.add("storge");
                 completions.add("reset");
                 completions.add("update");
-                return StringUtil.copyPartialMatches(args[0],completions,new ArrayList<>());
+                return StringUtil.copyPartialMatches(args[0], completions, new ArrayList<>());
             } else if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("update")) {
                     completions.add("download");
                     completions.add("version");
-                    return StringUtil.copyPartialMatches(args[1],completions,new ArrayList<>());
+                    return StringUtil.copyPartialMatches(args[1], completions, new ArrayList<>());
                 }
             }
         }

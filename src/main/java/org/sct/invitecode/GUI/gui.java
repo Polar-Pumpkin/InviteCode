@@ -1,31 +1,33 @@
 package org.sct.invitecode.GUI;
 
+import lombok.NonNull;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.sct.invitecode.InviteCode;
-import org.sct.invitecode.enumeration.ConfigType;
 import org.sct.invitecode.file.Config;
 import org.sct.invitecode.file.Items;
+import org.sct.invitecode.file.Times;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class gui {
     private static int slot;
-    private Map<Integer,Integer> slot_item = new HashMap<>();
+    private Map<Integer, Integer> slot_item = new HashMap<>();
 
-    public Inventory setGUI() {
-        //todo 修改GUI
+    public Inventory setGUI(@NonNull Player player) {
         slot = 0;
-        Inventory inv = Bukkit.createInventory(null,1 * 9,"§bRewardList");
-        for (int reward : Config.getIntList(ConfigType.REWARD)) {
-            if (slot<=8) {
+        Inventory inv = Bukkit.createInventory(null, 1 * 9, "§bRewardList");
+        int time = Times.getTimes().getInt(player.getName());
+        for (int reward : Config.getRewardList(time + 1)) {
+            if (slot <= 8) {
                 /*获取config内设置的奖励物品*/
                 ItemStack item = Items.getItemStack(reward);
 
                 /*存入栏位-物品*/
-                slot_item.put(slot,reward);
-                inv.setItem(slot,item);
+                slot_item.put(slot, reward);
+                inv.setItem(slot, item);
             }
             slot++;
         }

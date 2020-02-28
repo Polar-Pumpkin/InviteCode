@@ -14,7 +14,7 @@ public class Reset implements SubCommand {
 
         if (sender.isOp() || sender.hasPermission("ic.reset")) {
             String playername = InviteCodeData.getplayername(args[1]);
-            InviteCodeData.getTimer().put(playername + "start",0L);
+            InviteCodeData.getTimer().put(playername + "start", 0L);
             sender.sendMessage("§7[§eInviteCode§7]§b玩家" + playername + "的时间已重置!");
         } else {
             sender.sendMessage("§7[§eInviteCode§7]§c你没有此命令的权限!");

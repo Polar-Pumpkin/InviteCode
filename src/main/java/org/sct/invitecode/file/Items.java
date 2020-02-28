@@ -14,14 +14,14 @@ public class Items {
     public static void loadItems() {
         file = new File(InviteCode.getInstance().getDataFolder() + "\\items.yml");
         if (!file.exists()) {
-            InviteCode.getInstance().saveResource("items.yml",false);
+            InviteCode.getInstance().saveResource("items.yml", false);
         }
         items = YamlConfiguration.loadConfiguration(file);
     }
 
-    public static void SaveItem(String count,ItemStack itemStack) {
+    public static void SaveItem(String count, ItemStack itemStack) {
         loadItems();
-        items.set(count,itemStack);
+        items.set(count, itemStack);
         try {
             items.save(file);
         } catch (IOException e) {

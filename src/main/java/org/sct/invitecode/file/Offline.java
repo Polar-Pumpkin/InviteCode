@@ -15,7 +15,7 @@ public class Offline {
     public static void loadOffline() {
         file = new File(InviteCode.getInstance().getDataFolder() + "\\offline.yml");
         if (!file.exists()) {
-            InviteCode.getInstance().saveResource("offline.yml",false);
+            InviteCode.getInstance().saveResource("offline.yml", false);
         }
         offline = YamlConfiguration.loadConfiguration(file);
     }

@@ -3,17 +3,17 @@ package org.sct.invitecode.storge;
 import org.sct.invitecode.file.Code;
 
 
-public class Yaml extends Storge{
+public class Yaml extends Storge {
 
     @Override
-    public void storge(String player,String ic) {
-        Code.saveCode("InviteCode.Player." + player,ic);
+    public void storge(String player, String ic) {
+        Code.saveCode("InviteCode.Player." + player, ic);
     }
 
     @Override
     public String readplayer(String ic) {
         String invitecode = null;
-        String path= null;
+        String path = null;
         String playername = null;
         for (String p : Code.getCode().getKeys(true)) {
             invitecode = Code.getCode().getString(p);

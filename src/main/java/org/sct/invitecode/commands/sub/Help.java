@@ -17,7 +17,7 @@ public class Help implements SubCommand {
         } else {
             int count = 0;
             for (String help : Lang.getStringList(LangType.COMMANG_HELP)) {
-                if (count == length-1) {
+                if (count == length - 1) {
                     break;
                 }
                 sender.sendMessage(help);
@@ -26,7 +26,7 @@ public class Help implements SubCommand {
             for (String help : Lang.getStringList(LangType.OP_COMMANG_HELP)) {
                 sender.sendMessage(help);
             }
-            sender.sendMessage(Lang.getStringList(LangType.COMMANG_HELP).get(length-1));
+            sender.sendMessage(Lang.getStringList(LangType.COMMANG_HELP).get(length - 1));
         }
 
         return true;

@@ -1,12 +1,11 @@
 package org.sct.invitecode;
 
-import lombok.Getter;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.sct.invitecode.data.InviteCodeData;
 import org.sct.invitecode.commands.CommandHandler;
+import org.sct.invitecode.data.InviteCodeData;
 import org.sct.invitecode.file.*;
 import org.sct.invitecode.listener.Register;
 import org.sct.invitecode.util.JudgeDependencies;
@@ -18,6 +17,10 @@ public class InviteCode extends JavaPlugin {
     public static InviteCode instance;
     private String storgetype;
 
+    public static InviteCode getInstance() {
+        return instance;
+    }
+
     @Override
     public void onEnable() {
         instance = this;
@@ -25,11 +28,12 @@ public class InviteCode extends JavaPlugin {
         InviteCodeData.getPool().submit(() -> {
             FileUpdate.update(instance, "config.yml", getDataFolder().getPath());
             FileUpdate.update(instance, "lang.yml", getDataFolder().getPath());
-            CheckUpdate.check(Bukkit.getConsoleSender(), instance);});
+            CheckUpdate.check(Bukkit.getConsoleSender(), instance);
+        });
         Bukkit.getPluginCommand("InviteCode").setExecutor(new CommandHandler());
 
         if (Bukkit.getPluginManager().isPluginEnabled("Authme")) {
-            Bukkit.getPluginManager().registerEvents(new Register(),this);
+            Bukkit.getPluginManager().registerEvents(new Register(), this);
         }
         if (!initVault()) {
             getLogger().severe("Vault初始化失败,可能未安装Vault");
@@ -81,9 +85,5 @@ public class InviteCode extends JavaPlugin {
         }
         InviteCodeData.setEcon(rsp.getProvider());
         return InviteCodeData.getEcon() != null;
-    }
-
-    public static InviteCode getInstance() {
-        return instance;
     }
 }

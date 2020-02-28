@@ -18,7 +18,7 @@ import org.sct.plugincore.util.function.SubCommand;
 
 public class Reward implements SubCommand {
 
-    private long starttime,endtime;
+    private long starttime, endtime;
     private int delay = Config.getInt(ConfigType.DELAY);
 
     @Override
@@ -47,11 +47,11 @@ public class Reward implements SubCommand {
         if (!InviteCodeData.getTimer().containsKey(player.getName() + "start")) {
             /*定义没有计时器的第一次使用状态*/
             noTimer = true;
-            InviteCodeData.getTimer().putIfAbsent(player.getName() + "start",System.currentTimeMillis()/1000);
+            InviteCodeData.getTimer().putIfAbsent(player.getName() + "start", System.currentTimeMillis() / 1000);
         }
 
         starttime = InviteCodeData.getTimer().get(player.getName() + "start");
-        endtime = System.currentTimeMillis()/1000;
+        endtime = System.currentTimeMillis() / 1000;
 
         /*有计时器并且时间未到*/
         if (!noTimer && (endtime - starttime) < (delay * 60)) {
@@ -93,19 +93,19 @@ public class Reward implements SubCommand {
             OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(player.getName());
             double money = Config.getRewardMoney(times);
             sender.sendMessage("§7[§eInviteCode§7]§b获得货币" + money);
-            InviteCodeData.getEcon().depositPlayer(offlinePlayer,money);
+            InviteCodeData.getEcon().depositPlayer(offlinePlayer, money);
             sender.sendMessage("§7[§eInviteCode§7]§b当前余额为" + InviteCodeData.getEcon().getBalance(player));
         }
 
         /*给点券*/
         if (Bukkit.getPluginManager().isPluginEnabled("PlayerPoints") && Config.getRewardPoints(times) != 0) {
-            Bukkit.dispatchCommand(InviteCode.getInstance().getServer().getConsoleSender(),"points give " + player.getName() + " " + Config.getRewardPoints(times));
+            Bukkit.dispatchCommand(InviteCode.getInstance().getServer().getConsoleSender(), "points give " + player.getName() + " " + Config.getRewardPoints(times));
         }
         InviteCodeData.getRegister().remove(player.getName());
         player.sendMessage("§7[§eInviteCode§7]§b你已成功邀请一位玩家");
         player.sendMessage("§7[§eInviteCode§7]§b已向你的背包发放奖励!");
         /*刷新初始时间*/
-        InviteCodeData.getTimer().put(player.getName() + "start",System.currentTimeMillis()/1000);
+        InviteCodeData.getTimer().put(player.getName() + "start", System.currentTimeMillis() / 1000);
         return true;
     }
 

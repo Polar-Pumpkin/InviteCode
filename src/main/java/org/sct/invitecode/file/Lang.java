@@ -15,7 +15,7 @@ public class Lang {
     public static void loadLang() {
         file = new File(InviteCode.getInstance().getDataFolder() + "\\lang.yml");
         if (!file.exists()) {
-            InviteCode.getInstance().saveResource("lang.yml",false);
+            InviteCode.getInstance().saveResource("lang.yml", false);
         }
         lang = YamlConfiguration.loadConfiguration(file);
     }

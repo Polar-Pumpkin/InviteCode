@@ -43,12 +43,12 @@ public class PlayerJoin implements Listener {
                 OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(e.getPlayer().getName());
                 double money = InviteCode.getInstance().getConfig().getInt("InviteCode.Money");
                 e.getPlayer().sendMessage("§7[§eInviteCode§7]§b获得货币" + money);
-                InviteCodeData.getEcon().depositPlayer(offlinePlayer,money);
+                InviteCodeData.getEcon().depositPlayer(offlinePlayer, money);
                 e.getPlayer().sendMessage("§7[§eInviteCode§7]§b当前余额为" + InviteCodeData.getEcon().getBalance(e.getPlayer()));
             }
             //给点券
             if (Bukkit.getPluginManager().isPluginEnabled("PlayerPoints") && InviteCode.getInstance().getConfig().getInt("InviteCode.Points") != 0) {
-                Bukkit.dispatchCommand(InviteCode.getInstance().getServer().getConsoleSender(),"points give " + e.getPlayer().getName() + " " + InviteCode.getInstance().getConfig().getInt("InviteCode.Points"));
+                Bukkit.dispatchCommand(InviteCode.getInstance().getServer().getConsoleSender(), "points give " + e.getPlayer().getName() + " " + InviteCode.getInstance().getConfig().getInt("InviteCode.Points"));
             }
             rplayer.sendMessage("§7[§eInviteCode§7]§b已向你的背包发放奖励!");
         }

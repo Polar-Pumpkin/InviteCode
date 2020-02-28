@@ -18,14 +18,15 @@ public enum ConfigType {
     TIMES("InviteCode.Times");
 
 
-    @Getter String path;
+    @Getter
+    String path;
 
-    private ConfigType(String path) {
+    ConfigType(String path) {
         this.path = path;
     }
 
     public String TimesPath(int times) {
-        return path + "." + String.valueOf(times);
+        return path + "." + times;
     }
 
 }

@@ -9,14 +9,15 @@ import org.sct.plugincore.util.function.SubCommand;
 
 public class SaveItem implements SubCommand {
     private int itemcount;
+
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         if (sender instanceof Player) {
-            Player player= (Player) sender;
+            Player player = (Player) sender;
             if (player.hasPermission("ic.saveitem") || player.isOp()) {
                 @SuppressWarnings("deprecation")
                 ItemStack item = player.getItemInHand();
-                Items.SaveItem("items." + ++itemcount,item);
+                Items.SaveItem("items." + ++itemcount, item);
                 Items.loadItems();
                 sender.sendMessage("§7[§eInviteCode§7]§a物品保存成功");
             } else {
